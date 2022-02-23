@@ -20,10 +20,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
-        
-
-    }
     
+    }
     
 }
 
@@ -43,7 +41,7 @@ extension ViewController: CBCentralManagerDelegate {
             print("central.state is .poweredOff")
         case .poweredOn:
             print("central.state is .poweredOn")
-            centralManager.scanForPeripherals(withServices: [heartRateServiceCBUUID])
+            centralManager.scanForPeripherals(withServices: nil)
         @unknown default:
             print("Hello")
         }
@@ -61,13 +59,15 @@ extension ViewController: CBCentralManagerDelegate {
         print("Connected!")
         heartRatePeripheral.discoverServices([heartRateServiceCBUUID])
     }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("Disconnected!")
+    }
 }
 
 extension ViewController: CBPeripheralDelegate {
-    
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
-
         for service in services {
           print(service)
         }
