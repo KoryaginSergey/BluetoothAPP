@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -103,7 +103,7 @@
 				};
 			};
 			buildConfigurationList = 409B24FC27C4FDAA005CFE89 /* Build configuration list for PBXProject "BluetoothAPP" */;
-			compatibilityVersion = "Xcode 12.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
